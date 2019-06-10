@@ -1,0 +1,42 @@
+body {
+    font-family: Arial;
+    margin: 0;
+}
+.header {
+    padding: 15px;
+    text-align: left;
+    background: #0F0D0E;
+    color: white;
+    font-size: 20px;
+}
+p{
+    margin-left: 50px;
+}
+
+.addBookLayout{
+    display: table;
+    border-collapse: separate;
+    border-spacing: 15px;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.addBookLayout input[type=text] {
+    display: table-cell;
+}
+
+.addBookLayout label{
+    display: table-cell;
+}
+
+#row {
+    display: table-row;
+    border-spacing: 5px 1rem;
+}
+
+#submit {
+    width: 20em;
+    height: 2em;
+    margin-left: 80px;
+    background-color:#2E86C1;
+}

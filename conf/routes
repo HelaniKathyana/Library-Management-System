@@ -1,0 +1,49 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+#Add Book
+GET     /books              controllers.booksController.addBookView()
+POST    /books/save         controllers.booksController.addBookSave()
+#Delete Book
+GET     /books/delete     controllers.booksController.deleteBookView()
+POST     /deleteBook         controllers.booksController.deleteBookComplete()
+#Display Books
+GET     /books/viewAll         controllers.booksController.showBookView()
+#Borrow Book
+GET     /borrowBookIsbn               controllers.booksController.borrowBookIsbn()
+POST    /borrowBookConfirmedIsbn             controllers.booksController.addBookIsbn()
+GET     /books/borrow       controllers.booksController.borrowBookView()
+POST    /borrowBook         controllers.booksController.borrowBook()
+#Return Book
+GET     /returnBookisbn       controllers.booksController.returnBookIsbn()
+POST    /returnBookConfirmedIsbn       controllers.booksController.addReturningBookIsbn()
+GET     /books/return     controllers.booksController.returnBookView()
+POST    /returnBook      controllers.booksController.returnBook()
+
+#Add Dvd
+GET     /dvd               controllers.dvdController.addDvdView()
+POST    /dvd/add           controllers.dvdController.addDvdSave()
+#Delete Dvd
+GET     /dvd/delete        controllers.dvdController.deleteDvdView()
+POST    /deleteDvd         controllers.dvdController.deleteDvdComplete()
+#Display Dvd
+GET     /dvd/viewAll          controllers.dvdController.showDvdView()
+#Borrow Dvd
+GET     /isbn               controllers.dvdController.borrowDvdIsbn()
+POST    /confirmedIsbn             controllers.dvdController.addDvdIsbn()
+GET     /dvd/borrow       controllers.dvdController.borrowDvdView()
+POST    /borrowDvd         controllers.dvdController.borrowDvd()
+#Return Dvd
+GET     /returnDvdisbn       controllers.dvdController.returnDvdIsbn()
+POST    /returnDvdConfirmedIsbn       controllers.dvdController.addReturningDvdIsbn()
+GET     /dvd/return     controllers.dvdController.returnDvdView()
+POST    /returnDvd      controllers.dvdController.returnDvd()
+
+
+GET     /report       controllers.booksController.report()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

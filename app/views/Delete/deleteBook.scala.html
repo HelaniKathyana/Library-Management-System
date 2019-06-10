@@ -1,0 +1,70 @@
+@import helper._
+@import model.Book
+@(itemForm: Form[Book], bookCount: Integer, totItems: Integer)
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>University Of Westminster</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/navigation.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/delete-Book.css")">
+
+    <body>
+        <div class="navbar">
+            <a href="@routes.Application.index()"><b> Home </b></a>
+            <div class="subnav">
+                <button class="subnavbtn"><b> Add </b><i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="@routes.booksController.addBookView()">Add Book</a>
+                    <a href="@routes.dvdController.addDvdView()">Add Dvd</a>
+                </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn"><b> Delete </b> <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="@routes.booksController.deleteBookView()">Delete Book</a>
+                    <a href="@routes.dvdController.deleteDvdView()">Delete Dvd</a> </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn"><b> Display </b> <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="@routes.booksController.showBookView()">Display Book</a>
+                    <a href="@routes.dvdController.showDvdView()">Display Dvd</a> </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn"><b> Borrow </b> <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="@routes.booksController.borrowBookIsbn()">Borrow Book</a>
+                    <a href="@routes.dvdController.borrowDvdIsbn()">Borrow Dvd</a> </div>
+            </div>
+            <div class="subnav">
+                <button class="subnavbtn"><b> Return </b> <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="@routes.booksController.returnBookIsbn()">Return Book</a>
+                    <a href="@routes.dvdController.returnDvdIsbn()">Return Dvd</a> </div>
+            </div>
+            <a href="@routes.booksController.report()"><b> Report </b></a> </div>
+        <div class="header">
+            <h1>Delete Book Section</h1>
+        </div>
+
+        @if(bookCount==0) {
+            <p>There is no item to delete</p>
+            <a href="@routes.Application.index()"> back to menu</a>
+        }else{
+
+        <form action="@routes.booksController.deleteBookComplete()" method="post">
+            @helper.CSRF.formField
+            <div class="deleteBookLayout">
+                <div id="row">
+                    <label>ISBN : </label>
+                    <input type="text" name="isbn" size="20"> <br>
+                </div>
+            </div>
+            <input type="submit" value="Delete Book" id="submit">
+        </form>
+        }
+    </body>
+</html>

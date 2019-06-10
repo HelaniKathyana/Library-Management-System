@@ -1,0 +1,17 @@
+.header {
+    padding: 15px;
+    text-align: left;
+    background: #0F0D0E;
+    color: white;
+    font-size: 20px;
+}
+
+table{
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-top: 35px;
+}
+
+p{
+    margin-left: 50px;
+}
